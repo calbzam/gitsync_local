@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Windows;
+
+public class {SCRIPTNAME} : MonoBehaviour
+{
+    private InputControls input;
+    private Vector2 inputDir;
+
+    private void Awake()
+    {
+        input = new InputControls();
+    }
+
+    private void OnEnable()
+    {
+        input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Disable();
+    }
+
+    private void Update()
+    {
+        GatherInput();
+    }
+
+    private void GatherInput()
+    {
+        inputDir = input.Player.Movement.ReadValue<Vector2>();
+    }
+}
